@@ -34,22 +34,24 @@ export default function Movies() {
     <div className={styles.page}>
       <h2 className={styles.heading}>Popular <span className={styles.red}>Movies</span></h2>
 
-      <div className={styles.grid}>
+      <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
         {movies.map((movie) => (
           movie.poster_path && (
-            <Link to={`/movie/${movie.id}`} key={movie.id} className={styles.cardLink}>
-              <div className={styles.card}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                  alt={movie.title}
-                  className={styles.poster}
-                />
-                <div className={styles.overlay}>
-                  <span className={styles.rating}>⭐ {movie.vote_average.toFixed(1)}</span>
-                  <p className={styles.cardTitle}>{movie.title}</p>
+            <div className="col" key={movie.id}>
+              <Link to={`/movie/${movie.id}`} className={styles.cardLink}>
+                <div className={styles.card}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                    alt={movie.title}
+                    className={styles.poster}
+                  />
+                  <div className={styles.overlay}>
+                    <span className={styles.rating}>⭐ {movie.vote_average.toFixed(1)}</span>
+                    <p className={styles.cardTitle}>{movie.title}</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           )
         ))}
       </div>

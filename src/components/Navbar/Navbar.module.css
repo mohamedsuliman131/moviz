@@ -1,62 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 32px;
-  height: 60px;
-  background-color: #0d0f1a;
+  background-color: #0d0f1a !important;
   font-family: 'Inter', sans-serif;
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: 60px;
   position: sticky;
   top: 0;
   z-index: 100;
-}
-
-
-.left {
-  display: flex;
-  align-items: center;
-  gap: 36px;
 }
 
 .logo {
   font-size: 22px;
   font-weight: 700;
   font-style: italic;
-  color: #e50914;
+  color: #e50914 !important;
   text-decoration: none;
 }
 
 .navLinks {
-  display: flex;
-  gap: 28px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  gap: 8px;
 }
 
-.navLinks a {
+.navLink {
   font-size: 15px;
   font-weight: 500;
-  color: #c8cad4;
-  text-decoration: none;
+  color: #c8cad4 !important;
+  white-space: nowrap;
 }
 
-.navLinks a:hover {
-  color: #ffffff;
+.navLink:hover {
+  color: #ffffff !important;
 }
 
-.navLinks a.active {
-  color: #ffffff;
+.navLink.active {
+  color: #ffffff !important;
   font-weight: 700;
 }
 
+.toggler {
+  border-color: #444 !important;
+  filter: invert(1);
+}
 
 .right {
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
+  padding: 8px 0;
+}
+
+@media (min-width: 992px) {
+  .right { padding: 0; }
 }
 
 .searchBox input {
@@ -64,7 +61,7 @@
   border: 1px solid #2e3048;
   border-radius: 20px;
   padding: 6px 16px;
-  width: 220px;
+  width: 200px;
   color: #c8cad4;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
@@ -73,11 +70,6 @@
 
 .searchBox input::placeholder {
   color: #8b8fa8;
-}
-
-.icon {
-  font-size: 20px;
-  cursor: pointer;
 }
 
 .authIcons {

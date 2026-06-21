@@ -23,49 +23,63 @@ export default function Navbar() {
   }
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={`navbar navbar-expand-lg ${styles.navbar}`}>
+      <div className="container-fluid px-3">
 
-      <div className={styles.left}>
-        <Link to="/" className={styles.logo}>Moviz</Link>
+        <Link to="/" className={`navbar-brand ${styles.logo}`}>Moviz</Link>
 
-        <ul className={styles.navLinks}>
-          <li><Link to="/" className={isActive('/')}>Home</Link></li>
-          <li><Link to="/movies" className={isActive('/movies')}>Movies</Link></li>
-          <li><Link to="/tvshows" className={isActive('/tvshows')}>TV Shows</Link></li>
-          <li><Link to="/popular" className={isActive('/popular')}>New & Popular</Link></li>
-          <li><Link to="/watchlist" className={isActive('/watchlist')}>Watchlist</Link></li>
-        </ul>
-      </div>
+        <button
+          className={`navbar-toggler ${styles.toggler}`}
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-      <div className={styles.right}>
-        <form onSubmit={handleSearch} className={styles.searchBox}>
-          <input
-            type="text"
-            placeholder="Search titles..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </form>
+        <div className="collapse navbar-collapse" id="navMenu">
+          <ul className={`navbar-nav me-auto mb-2 mb-lg-0 ${styles.navLinks}`}>
+            <li className="nav-item"><Link to="/" className={`nav-link ${styles.navLink} ${isActive('/')}`}>Home</Link></li>
+            <li className="nav-item"><Link to="/movies" className={`nav-link ${styles.navLink} ${isActive('/movies')}`}>Movies</Link></li>
+            <li className="nav-item"><Link to="/tvshows" className={`nav-link ${styles.navLink} ${isActive('/tvshows')}`}>TV Shows</Link></li>
+            <li className="nav-item"><Link to="/popular" className={`nav-link ${styles.navLink} ${isActive('/popular')}`}>New & Popular</Link></li>
+            <li className="nav-item"><Link to="/watchlist" className={`nav-link ${styles.navLink} ${isActive('/watchlist')}`}>Watchlist</Link></li>
+          </ul>
 
-        {user ? (
-          <div className={styles.userArea}>
-            <span className={styles.userName}>👤 {user.name}</span>
-            <button className={styles.logoutBtn} onClick={() => { logout(); navigate('/') }}>
-              Logout
-            </button>
+          <div className={styles.right}>
+            <form onSubmit={handleSearch} className={styles.searchBox}>
+              <input
+                type="text"
+                placeholder="Search titles..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </form>
+
+            {user ? (
+              <div className={styles.userArea}>
+                <span className={styles.userName}>👤 {user.name}</span>
+                <button className={styles.logoutBtn} onClick={() => { logout(); navigate('/') }}>
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <div className={styles.authIcons}>
+                <Link to="/login" className={styles.authIcon} title="Sign In">
+                  <i className="fas fa-sign-in-alt"></i>
+                </Link>
+                <Link to="/register" className={styles.authIcon} title="Sign Up">
+                  <i className="fas fa-user-plus"></i>
+                </Link>
+              </div>
+            )}
           </div>
-        ) : (
-          <div className={styles.authIcons}>
-            <Link to="/login" className={styles.authIcon} title="Sign In">
-              <i className="fas fa-sign-in-alt"></i>
-            </Link>
-            <Link to="/register" className={styles.authIcon} title="Sign Up">
-              <i className="fas fa-user-plus"></i>
-            </Link>
-          </div>
-        )}
-      </div>
+        </div>
 
+      </div>
     </nav>
   )
 }

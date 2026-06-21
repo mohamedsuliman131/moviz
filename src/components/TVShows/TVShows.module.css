@@ -1,9 +1,17 @@
 .page {
   background-color: #0f172a;
   min-height: 100vh;
-  padding: 40px 60px;
+  padding: 30px 16px;
   font-family: 'Inter', sans-serif;
   color: white;
+}
+
+@media (min-width: 768px) {
+  .page { padding: 40px 40px; }
+}
+
+@media (min-width: 1024px) {
+  .page { padding: 40px 60px; }
 }
 
 .loading {

@@ -54,21 +54,23 @@ export default function HomePage() {
       {/* Popular Movies */}
       <div className={styles.section}>
         <h3 className={styles.sectionTitle}>Popular Movies</h3>
-        <div className={styles.moviesGrid}>
+        <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
           {movies.map((movie) => (
-            <Link to={`/movie/${movie.id}`} key={movie.id} className={styles.cardLink}>
-              <div className={styles.card}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                  alt={movie.title}
-                  className={styles.poster}
-                />
-                <div className={styles.cardOverlay}>
-                  <span className={styles.rating}>⭐ {movie.vote_average.toFixed(1)}</span>
-                  <p className={styles.cardTitle}>{movie.title}</p>
+            <div className="col" key={movie.id}>
+              <Link to={`/movie/${movie.id}`} className={styles.cardLink}>
+                <div className={styles.card}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                    alt={movie.title}
+                    className={styles.poster}
+                  />
+                  <div className={styles.cardOverlay}>
+                    <span className={styles.rating}>⭐ {movie.vote_average.toFixed(1)}</span>
+                    <p className={styles.cardTitle}>{movie.title}</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           ))}
         </div>
       </div>

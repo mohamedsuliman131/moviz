@@ -34,22 +34,24 @@ export default function TVShows() {
     <div className={styles.page}>
       <h2 className={styles.heading}>Popular <span className={styles.red}>TV Shows</span></h2>
 
-      <div className={styles.grid}>
+      <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
         {shows.map((show) => (
           show.poster_path && (
-            <Link to={`/movie/${show.id}`} key={show.id} className={styles.cardLink}>
-              <div className={styles.card}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w300${show.poster_path}`}
-                  alt={show.name}
-                  className={styles.poster}
-                />
-                <div className={styles.overlay}>
-                  <span className={styles.rating}>⭐ {show.vote_average.toFixed(1)}</span>
-                  <p className={styles.cardTitle}>{show.name}</p>
+            <div className="col" key={show.id}>
+              <Link to={`/movie/${show.id}`} className={styles.cardLink}>
+                <div className={styles.card}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w300${show.poster_path}`}
+                    alt={show.name}
+                    className={styles.poster}
+                  />
+                  <div className={styles.overlay}>
+                    <span className={styles.rating}>⭐ {show.vote_average.toFixed(1)}</span>
+                    <p className={styles.cardTitle}>{show.name}</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           )
         ))}
       </div>
