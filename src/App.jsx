@@ -9,6 +9,7 @@ import Movies from "./components/Movies/Movies";
 import TVShows from "./components/TVShows/TVShows";
 import Popular from "./components/Popular/Popular";
 import Watchlist from "./components/Watchlist/Watchlist";
+import GenreMovies from "./components/GenreMovies/GenreMovies";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
@@ -28,6 +29,7 @@ function App() {
         { path: "tvshows", element: <TVShows /> },
         { path: "popular", element: <Popular /> },
         { path: "search", element: <Search /> },
+        { path: "genre/:id", element: <GenreMovies /> },
         { path: "watchlist", element: <ProtectedRoute><Watchlist /></ProtectedRoute> },
         { path: "register", element: <Register /> },
         { path: "login", element: <Login /> },

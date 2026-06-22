@@ -1,7 +1,7 @@
 import styles from './HomePage.module.css'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay } from 'swiper/modules'
 import 'swiper/css'
@@ -11,6 +11,7 @@ const API_KEY = '8d40b1f5e43ec4c07e7e5d8c6d766eb0'
 
 export default function HomePage() {
 
+  const navigate = useNavigate()
   const [movies, setMovies] = useState([])
   const [genres, setGenres] = useState([])
   const [loading, setLoading] = useState(true)
@@ -92,7 +93,12 @@ export default function HomePage() {
         >
           {genres.map((genre) => (
             <SwiperSlide key={genre.id}>
-              <div className={styles.genre}>{genre.name}</div>
+              <div
+                className={styles.genre}
+                onClick={() => navigate(`/genre/${genre.id}`, { state: { name: genre.name } })}
+              >
+                {genre.name}
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
