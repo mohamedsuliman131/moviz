@@ -2,7 +2,7 @@
 
 # 🎬 Moviz — Movie Search App
 
-🌐 **Live Demo:** [moviz1122.netlify.app](https://moviz1122.netlify.app)
+🌐 **Live Demo:** [moviz-theta.vercel.app](https://moviz-theta.vercel.app/)
 
 A responsive movie discovery web app built with React and the TMDB API. Browse popular movies and TV shows, search for any title, watch trailers, view cast info, and get AI-powered movie recommendations via a built-in chatbot.
 
